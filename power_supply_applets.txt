@@ -1,0 +1,23 @@
+event manager applet power_supply_failure_A
+ event syslog pattern "%PLATFORM_FEP-6-FRU_PS_OIR: Switch 1: FRU power supply A powered off"
+ action 10 cli command "enable"
+ action 11 cli command "guestshell run python /bootflash/WoS-Demo/power_supply_failure.py"
+ action 13 cli command "exit"
+!
+event manager applet power_supply_failure_B
+ event syslog pattern "%PLATFORM_FEP-6-FRU_PS_OIR: Switch 1: FRU power supply B powered off"
+ action 10 cli command "enable"
+ action 11 cli command "guestshell run python /bootflash/WoS-Demo/power_supply_failure.py"
+ action 13 cli command "exit"
+!
+event manager applet power_supply_recovery_A
+ event syslog pattern "%PLATFORM_FEP-6-FRU_PS_OIR: Switch 1: FRU power supply A powered on"
+ action 10 cli command "enable"
+ action 11 cli command "guestshell run python /bootflash/WoS-Demo/power_supply_recovery.py"
+ action 13 cli command "exit"
+!
+event manager applet power_supply_recovery_B
+ event syslog pattern "%PLATFORM_FEP-6-FRU_PS_OIR: Switch 1: FRU power supply B powered on"
+ action 10 cli command "enable"
+ action 11 cli command "guestshell run python /bootflash/WoS-Demo/power_supply_recovery.py"
+ action 13 cli command "exit"

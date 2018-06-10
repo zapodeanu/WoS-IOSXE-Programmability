@@ -1,0 +1,12 @@
+event manager applet critical_interface_failure
+ event syslog pattern "%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/13, changed state to down"
+ action 10 cli command "enable"
+ action 11 cli command "guestshell run python /bootflash/WoS-Demo/critical_interface_down.py"
+ action 13 cli command "exit"
+!
+event manager applet critical_interface_recovery
+ event syslog pattern "%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/13, changed state to up"
+ action 10 cli command "enable"
+ action 11 cli command "guestshell run python /bootflash/WoS-Demo/critical_interface_up.py"
+ action 13 cli command "exit"
+!
